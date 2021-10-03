@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<root version="3.0" >
+	<properties>
+		<name>Feature: Temporary Hitpoints Effects</name>
+		<version>1</version>
+		<loadorder>99</loadorder>
+		<description>
+			<text>Adds TEMPO and TEMPA effects to 4E</text>
+			<website></website>
+			<author>bmos and Kelrugem</author>
+		</description>
+		<ruleset>
+			<name>4E</name>
+		</ruleset>
+	</properties>
+
+    <announcement text="Temporary Hitpoints Effects - v1.0\nAdds TEMPO and TEMPA effects to 4E." font="emotefont" />
+
+	<base>		
+		<script name="TempHitpointEffects" file="scripts/manager_effect_temp_hp.lua" />
+    </base>
+</root>
