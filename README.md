@@ -1,6 +1,7 @@
 # Temporary Hitpoints Effects
 
 This extension adds effects to give temporary hitpoints to characters either on the beginning or end of their turn.
+
 If temp hitpoints are already in place, the higher of the two numbers will be used.
 
 ## Examples
