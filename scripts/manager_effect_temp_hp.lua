@@ -137,8 +137,18 @@ function onEffectActorEndTurn(nodeActor, nodeEffect)
 	local aEffectComps = EffectManager.parseEffect(sEffName);
 	for _,sEffectComp in ipairs(aEffectComps) do
 		local rEffectComp = EffectManager.parseEffectCompSimple(sEffectComp);
+
+		-- Conditionals
+		if rEffectComp.type == "IFT" then
+			break;
+		elseif rEffectComp.type == "IF" then
+			local rActor = ActorManager.resolveActor(nodeActor);
+			if not EffectManager4E.checkConditional(rActor, nodeEffect, rEffectComp) then
+				break;
+			end
+
 		-- Ongoing damage and regeneration
-		if rEffectComp.type == "TEMPA" then
+		elseif rEffectComp.type == "TEMPA" then
 			local nActive = DB.getValue(nodeEffect, "isactive", 0);
 			if nActive == 2 then
 				DB.setValue(nodeEffect, "isactive", "number", 1);
