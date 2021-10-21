@@ -3,7 +3,7 @@
 <root version="3.0" >
 	<properties>
 		<name>Feature: Temporary Hitpoints Effects</name>
-		<version>1.1</version>
+		<version>1.2</version>
 		<loadorder>99</loadorder>
 		<description>
 			<text>Adds TEMPO and TEMPA effects to 4E</text>
@@ -15,7 +15,7 @@
 		</ruleset>
 	</properties>
 
-    <announcement text="Temporary Hitpoints Effects - v1.1\nAdds TEMPO and TEMPA effects to 4E." font="emotefont" />
+    <announcement text="Temporary Hitpoints Effects - v1.2\nAdds TEMPO and TEMPA effects to 4E." font="emotefont" />
 
 	<base>		
 		<script name="TempHitpointEffects" file="scripts/manager_effect_temp_hp.lua" />

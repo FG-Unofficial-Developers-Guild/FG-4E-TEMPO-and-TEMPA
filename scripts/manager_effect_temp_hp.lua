@@ -128,11 +128,9 @@ function onEffectActorStartTurn(nodeActor, nodeEffect)
 		end
 	end
 end
-function onEffectActorEndTurn(nodeActor, nodeEffect)
-	local sEffExp = DB.getValue(nodeEffect, "expiration", "");
-	if sEffExp == "save" then
-		EffectManager4E.makeEffectSave(nodeActor, nodeEffect);
-	end
+
+local onEffectActorEndTurn_old
+function onEffectActorEndTurn_new(nodeActor, nodeEffect, ...)
 	local sEffName = DB.getValue(nodeEffect, "label", "");
 	local aEffectComps = EffectManager.parseEffect(sEffName);
 	for _,sEffectComp in ipairs(aEffectComps) do
@@ -157,32 +155,30 @@ function onEffectActorEndTurn(nodeActor, nodeEffect)
 			end
 		end
 	end
+	onEffectActorEndTurn_old(nodeActor, nodeEffect, ...)
 end
 
 -- NOTE: Apply fixed regeneration and ongoing damage on the next init change. 
 --		Since multiple turns can be passed on round advancement, the stacking needs to be tracked on a per actor basis.
 --		Then, when the init gets set (via nextActor or nextRound), then apply all that have built up.
-function onActorTurnStart(nodeActor)
+local onActorTurnStart_old
+function onActorTurnStart_new(nodeActor, ...)
 	for nodeActor,rEffectTEMPO in pairs(aFixedEffectTEMPO) do
 		applyOngoingDamageAdjustment(nodeActor, rEffectTEMPO.node, rEffectTEMPO.rComp);
 	end
 	aFixedEffectTEMPO = {};
 
-	for nodeActor,rEffectREGEN in pairs(aFixedEffectREGEN) do
-		applyOngoingDamageAdjustment(nodeActor, rEffectREGEN.node, rEffectREGEN.rComp);
-	end
-	aFixedEffectREGEN = {};
-	
-	for nodeActor,aEffectDMGO in pairs(aFixedEffectDMGO) do
-		for _,v in pairs(aEffectDMGO) do
-			applyOngoingDamageAdjustment(nodeActor, v.node, v.rComp);
-		end
-	end
-	aFixedEffectDMGO = {};
+	onActorTurnStart_old(nodeActor, ...)
 end
 
 function onInit()
 	EffectManager.setCustomOnEffectActorStartTurn(onEffectActorStartTurn);
-	EffectManager.setCustomOnEffectActorEndTurn(onEffectActorEndTurn);
-	CombatManager.setCustomTurnStart(onActorTurnStart);
+
+	EffectManager.setCustomOnEffectActorEndTurn(onEffectActorEndTurn_new);
+	onEffectActorEndTurn_old = EffectManager4E.onEffectActorEndTurn
+	EffectManager4E.onEffectActorEndTurn = onEffectActorEndTurn_new
+
+	CombatManager.setCustomTurnStart(onActorTurnStart_new);
+	onActorTurnStart_old = EffectManager4E.onEffectActorStartTurn
+	EffectManager4E.onEffectActorStartTurn = onActorTurnStart_new
 end

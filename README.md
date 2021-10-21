@@ -22,3 +22,6 @@ TEMPA: 1d4 -- 1 to 4 temp hitpoints on end of turn (if not at 0hp or below and c
 TEMPA: 1d4 -- 0 temp hitpoints on end of turn (if not at 0hp or below and character has 4 temp hitpoints)
 
 TEMPA: 1d4 -- 0 to 2 temp hitpoints on end of turn (if not at 0hp or below and character has 2 temp hitpoints) 
+
+# Compatibility
+This extension has been tested with [FantasyGrounds Unity](https://www.fantasygrounds.com/home/FantasyGroundsUnity.php) 4.1.10 (2021-10-05).
