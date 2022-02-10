@@ -4,6 +4,9 @@ This extension adds effects to give temporary hitpoints to characters either on 
 
 If temp hitpoints are already in place, the higher of the two numbers will be used (this follows the way temp hp works in FG for 4E ruleset).
 
+# Compatibility
+This extension has been tested with [FantasyGrounds Unity](https://www.fantasygrounds.com/home/FantasyGroundsUnity.php) 4.1.13 (2022-01-05).
+
 ## Examples
 ### TEMPO
 TEMPO: 5 - 5 temp hitpoints on start of turn (if not at 0hp or below and character has 0 temp hitpoints)
@@ -22,6 +25,3 @@ TEMPA: 1d4 -- 1 to 4 temp hitpoints on end of turn (if not at 0hp or below and c
 TEMPA: 1d4 -- 0 temp hitpoints on end of turn (if not at 0hp or below and character has 4 temp hitpoints)
 
 TEMPA: 1d4 -- 0 to 2 temp hitpoints on end of turn (if not at 0hp or below and character has 2 temp hitpoints) 
-
-# Compatibility
-This extension has been tested with [FantasyGrounds Unity](https://www.fantasygrounds.com/home/FantasyGroundsUnity.php) 4.1.10 (2021-10-05).
