@@ -1,5 +1,5 @@
--- 
--- Please see the LICENSE.md file included with this distribution for 
+--
+-- Please see the LICENSE.md file included with this distribution for
 -- attribution and copyright information.
 --
 
@@ -28,7 +28,7 @@ local function applyOngoingDamageAdjustment(nodeActor, nodeEffect, rEffectComp)
 	elseif rEffectComp.type == "TEMPO" or rEffectComp.type == "TEMPA" then
 		local rActor = ActorManager.resolveActor(nodeActor);
 		local nPercentWounded = ActorHealthManager.getWoundPercent(rActor);
-		
+
 		-- Temporary hitpoints don't work once creature falls below 1 hit point
 		if nPercentWounded >= 1 then
 			return;
@@ -57,7 +57,7 @@ local aFixedEffectDMGO = {};
 function onEffectActorStartTurn(nodeActor, nodeEffect)
 	local rEffectRegen = nil;
 	local aEffectOngoingDamage = {};
-	
+
 	local sEffName = DB.getValue(nodeEffect, "label", "");
 	local aEffectComps = EffectManager.parseEffect(sEffName);
 	for _,sEffectComp in ipairs(aEffectComps) do
@@ -65,7 +65,7 @@ function onEffectActorStartTurn(nodeActor, nodeEffect)
 		-- Follow-on effects
 		if rEffectComp.type == "AFTER" or rEffectComp.type == "FAIL" then
 			break;
-		
+
 		-- Conditionals
 		elseif rEffectComp.type == "IFT" then
 			break;
@@ -74,7 +74,7 @@ function onEffectActorStartTurn(nodeActor, nodeEffect)
 			if not EffectManager4E.checkConditional(rActor, nodeEffect, rEffectComp) then
 				break;
 			end
-		
+
 		-- Ongoing damage and regeneration
 		-- From PHB, fixed regeneration and fixed ongoing damage of same damage type do not stack
 		elseif rEffectComp.type == "DMGO" or rEffectComp.type == "TEMPO" or rEffectComp.type == "REGEN" then
@@ -158,7 +158,7 @@ function onEffectActorEndTurn_new(nodeActor, nodeEffect, ...)
 	onEffectActorEndTurn_old(nodeActor, nodeEffect, ...)
 end
 
--- NOTE: Apply fixed regeneration and ongoing damage on the next init change. 
+-- NOTE: Apply fixed regeneration and ongoing damage on the next init change.
 --		Since multiple turns can be passed on round advancement, the stacking needs to be tracked on a per actor basis.
 --		Then, when the init gets set (via nextActor or nextRound), then apply all that have built up.
 local onActorTurnStart_old
