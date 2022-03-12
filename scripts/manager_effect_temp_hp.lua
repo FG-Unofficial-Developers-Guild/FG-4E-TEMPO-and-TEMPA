@@ -55,9 +55,6 @@ local aFixedEffectTEMPO = {};
 local aFixedEffectREGEN = {};
 local aFixedEffectDMGO = {};
 function onEffectActorStartTurn(nodeActor, nodeEffect)
-	local rEffectRegen = nil;
-	local aEffectOngoingDamage = {};
-
 	local sEffName = DB.getValue(nodeEffect, "label", "");
 	local aEffectComps = EffectManager.parseEffect(sEffName);
 	for _,sEffectComp in ipairs(aEffectComps) do
