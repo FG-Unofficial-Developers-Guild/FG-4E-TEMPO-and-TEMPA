@@ -3,13 +3,10 @@
 <root version="3.0" >
 	<properties>
 		<name>Feature: Temporary Hitpoints Effects</name>
+		<author>bmos</author>
 		<version>1.2</version>
 		<loadorder>99</loadorder>
-		<description>
-			<text>Adds TEMPO and TEMPA effects to 4E</text>
-			<website></website>
-			<author>bmos</author>
-		</description>
+		<description>Adds TEMPO and TEMPA effects to 4E</description>
 		<ruleset>
 			<name>4E</name>
 		</ruleset>
