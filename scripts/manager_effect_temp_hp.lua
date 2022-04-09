@@ -163,7 +163,7 @@ end
 local onActorTurnStart_old
 -- luacheck: globals onActorTurnStart_new
 function onActorTurnStart_new(nodeActor, ...)
-	for nodeActor,rEffectTEMPO in pairs(aFixedEffectTEMPO) do
+	for _,rEffectTEMPO in pairs(aFixedEffectTEMPO) do
 		applyOngoingDamageAdjustment(nodeActor, rEffectTEMPO.node, rEffectTEMPO.rComp);
 	end
 	aFixedEffectTEMPO = {};
