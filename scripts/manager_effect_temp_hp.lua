@@ -54,6 +54,7 @@ end
 local aFixedEffectTEMPO = {};
 local aFixedEffectREGEN = {};
 local aFixedEffectDMGO = {};
+-- luacheck: globals onEffectActorStartTurn
 function onEffectActorStartTurn(nodeActor, nodeEffect)
 	local sEffName = DB.getValue(nodeEffect, "label", "");
 	local aEffectComps = EffectManager.parseEffect(sEffName);
@@ -127,6 +128,7 @@ function onEffectActorStartTurn(nodeActor, nodeEffect)
 end
 
 local onEffectActorEndTurn_old
+-- luacheck: globals onEffectActorEndTurn_new
 function onEffectActorEndTurn_new(nodeActor, nodeEffect, ...)
 	local sEffName = DB.getValue(nodeEffect, "label", "");
 	local aEffectComps = EffectManager.parseEffect(sEffName);
@@ -159,6 +161,7 @@ end
 --		Since multiple turns can be passed on round advancement, the stacking needs to be tracked on a per actor basis.
 --		Then, when the init gets set (via nextActor or nextRound), then apply all that have built up.
 local onActorTurnStart_old
+-- luacheck: globals onActorTurnStart_new
 function onActorTurnStart_new(nodeActor, ...)
 	for nodeActor,rEffectTEMPO in pairs(aFixedEffectTEMPO) do
 		applyOngoingDamageAdjustment(nodeActor, rEffectTEMPO.node, rEffectTEMPO.rComp);
