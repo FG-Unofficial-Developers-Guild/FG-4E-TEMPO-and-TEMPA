@@ -5,7 +5,7 @@ This extension adds effects to give temporary hitpoints to characters either on 
 If temp hitpoints are already in place, the higher of the two numbers will be used (this follows the way temp hp works in FG for 4E ruleset).
 
 # Compatibility
-This extension has been tested with [FantasyGrounds Unity](https://www.fantasygrounds.com/home/FantasyGroundsUnity.php) 4.1.13 (2022-01-05).
+This extension has been tested with [FantasyGrounds Unity](https://www.fantasygrounds.com/home/FantasyGroundsUnity.php) 4.2.2 (2022-06-07).
 
 ## Examples
 ### TEMPO
