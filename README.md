@@ -1,4 +1,4 @@
-[![Build FG-Usable File](https://github.com/FG-Unofficial-Developers-Guild/FG-4E-TEMPO-and-TEMPA/actions/workflows/create-ext.yml/badge.svg)](https://github.com/FG-Unofficial-Developers-Guild/FG-4E-TEMPO-and-TEMPA/actions/workflows/create-ext.yml) [![Luacheck](https://github.com/FG-Unofficial-Developers-Guild/FG-4E-TEMPO-and-TEMPA/actions/workflows/luacheck.yml/badge.svg)](https://github.com/FG-Unofficial-Developers-Guild/FG-4E-TEMPO-and-TEMPA/actions/workflows/luacheck.yml)
+[![Build FG-Usable File](https://github.com/FG-Unofficial-Developers-Guild/FG-4E-TEMPO-and-TEMPA/actions/workflows/create-ext.yml/badge.svg?branch=main)](https://github.com/FG-Unofficial-Developers-Guild/FG-4E-TEMPO-and-TEMPA/actions/workflows/create-ext.yml) [![Luacheck](https://github.com/FG-Unofficial-Developers-Guild/FG-4E-TEMPO-and-TEMPA/actions/workflows/luacheck.yml/badge.svg?branch=main)](https://github.com/FG-Unofficial-Developers-Guild/FG-4E-TEMPO-and-TEMPA/actions/workflows/luacheck.yml)
 
 # Temporary Hitpoints Effects
 This extension adds effects to give temporary hitpoints to characters either on the beginning or end of their turn.
